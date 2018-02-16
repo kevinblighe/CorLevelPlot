@@ -7,7 +7,7 @@
   <li>latticeExtra</li>
   <li>RColorBrewer</li>
   </ul>
-<h2>Execution</a>
+<h2>Execution</h2>
 <code>CorLevelPlot(df, x, y, labcex, strCorMethod, strPalette, iNumColours, boolReverse, boolPlotRSquared, strTitle)</code>
 <br>
 <h2>Parameters</h2>
