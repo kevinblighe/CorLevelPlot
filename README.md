@@ -1,6 +1,7 @@
 # CorLevelPlot
 <h1>Visualise correlation results, e.g., clinical parameter correlations</h1>
-<br>
+<img src="https://github.com/kevinblighe/CorLevelPlot/blob/master/CorLevelPlot1.png">
+<img src="https://github.com/kevinblighe/CorLevelPlot/blob/master/CorLevelPlot2.png"><br>
 <h2>Requires</h2>
 <ul>
   <li>lattice</li>
@@ -24,5 +25,4 @@
   <li>strTitle, plot title</li>
   </ul>
 <br>
-<img src="https://github.com/kevinblighe/CorLevelPlot/blob/master/CorLevelPlot1.png">
-<img src="https://github.com/kevinblighe/CorLevelPlot/blob/master/CorLevelPlot2.png">
+
