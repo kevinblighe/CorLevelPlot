@@ -25,4 +25,5 @@
   <li>strTitle, plot title</li>
   </ul>
 <br>
-
+<h2>Parameters</h2>
+Kevin Blighe; Myles Lewis
