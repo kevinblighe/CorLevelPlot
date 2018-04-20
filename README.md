@@ -29,4 +29,7 @@
 <code>CorLevelPlot(Mydata, c("PC1","PC2","PC3","PC4"), c("Batch","CaseControl","Gender"), 0.8, "spearman", "RdBu", 9, FALSE, FALSE, "PC correlation")</code>
 <br>
 <h2>Credits</h2>
-Kevin Blighe; Myles Lewis
+<ul>
+  <li>Kevin Blighe (Queen Mary University of London)</li>
+  <li>Myles Lewis (Queen Mary University of London)</li>
+</ul>
