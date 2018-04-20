@@ -14,8 +14,8 @@
 <h2>Parameters</h2>
 <ul>
   <li>df, Data-frame/matrix with correlates as column names</li>
-  <li>x, vector of correlates (column names) contained within dfClinParameters</li>
-  <li>y, as above</li>
+  <li>x, vector of column names in df</li>
+  <li>y, vector of column names in df to be correlated to x</li>
   <li>labCex, Size of the labels inside the plot area</li>
   <li>strCorMethod, one of "pearson", "kendall", "spearman"</li>
 <li>strPalette, one of RColorBrewer's palettes (see http://svitsrv25.epfl.ch/R-doc/library/RColorBrewer/html/ColorBrewer.html)</li>
