@@ -18,7 +18,7 @@
   <li>y, vector of column names in df to be correlated to x</li>
   <li>labCex, size of the labels inside the plot area</li>
   <li>strCorMethod, one of "pearson", "kendall", "spearman"</li>
-  <li>strPalette, one of RColorBrewer's palettes (see http://svitsrv25.epfl.ch/R-doc/library/RColorBrewer/html/ColorBrewer.html)</li>
+  <li>strPalette, one of RColorBrewer's palettes (see http://www.r-graph-gallery.com/38-rcolorbrewers-palettes/)</li>
   <li>iNumColours, number of colours to use in the palette (if too many chosen, the max will automatically be chosen)</li>
   <li>boolReverse, Reverse the palette? (TRUE/FALSE)</li>
   <li>boolPlotRSquared, plot R^2 values? (TRUE/FALSE)</li>
