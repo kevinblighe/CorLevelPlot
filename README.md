@@ -13,17 +13,17 @@
 <br>
 <h2>Parameters</h2>
 <ul>
-  <li>df, Data-frame/matrix with correlates as column names</li>
+  <li>df, data-frame/matrix</li>
   <li>x, vector of column names in df</li>
   <li>y, vector of column names in df to be correlated to x</li>
-  <li>labCex, Size of the labels inside the plot area</li>
+  <li>labCex, size of the labels inside the plot area</li>
   <li>strCorMethod, one of "pearson", "kendall", "spearman"</li>
-<li>strPalette, one of RColorBrewer's palettes (see http://svitsrv25.epfl.ch/R-doc/library/RColorBrewer/html/ColorBrewer.html)</li>
-<li>iNumColours, number of colours to use in the palette (if too many chosen, the max will automatically be chosen)</li>
-  <li>boolReverse, Reverse the palette?</li>
-<li>boolPlotRSquared, plot R^2 values?</li>
+  <li>strPalette, one of RColorBrewer's palettes (see http://svitsrv25.epfl.ch/R-doc/library/RColorBrewer/html/ColorBrewer.html)</li>
+  <li>iNumColours, number of colours to use in the palette (if too many chosen, the max will automatically be chosen)</li>
+  <li>boolReverse, Reverse the palette? (TRUE/FALSE)</li>
+  <li>boolPlotRSquared, plot R^2 values? (TRUE/FALSE)</li>
   <li>strTitle, plot title</li>
-  </ul>
+</ul>
 <br>
 <h2>Credits</h2>
 Kevin Blighe; Myles Lewis
