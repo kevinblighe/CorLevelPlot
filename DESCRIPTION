@@ -1,0 +1,17 @@
+Package: CorLevelPlot
+Type: Package
+Title: Visualise correlation results and test significancies of these
+Version: 0.99.0
+Author: Kevin Blighe
+Maintainer: Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
+Description: 
+License: GPL-3
+Imports:
+    lattice,
+    RColorBrewer,
+Suggests:
+    knitr
+URL: https://github.com/kevinblighe/CorLevelPlot
+biocViews: Correlation, levelplot
+VignetteBuilder:
+    knitr
