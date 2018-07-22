@@ -62,7 +62,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
     MEyellow <- ESyellow * scaledy + sqrt(1 - ESyellow ^ 2) * rnorm(no.obs)
     ModuleEigengeneNetwork1 <- data.frame(y, MEturquoise, MEblue, MEbrown, MEgreen, MEyellow)
 
-    CorLevelPlot(ModuleEigengeneNetwork1, c("y", "MEturquoise", "MEblue"), c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"), 0.8, "spearman", "RdBu", 9, FALSE, FALSE, "WGCNA example")
+    CorLevelPlot(data = ModuleEigengeneNetwork1, x = c("y", "MEturquoise", "MEblue"), y = c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"), labCex = 0.8, corMethod = "spearman", paletteCol = "RdBu", paletteLength = 9, reversePalette = TRUE, plotRsquared = FALSE, main = "WGCNA example")
 
 ```
 

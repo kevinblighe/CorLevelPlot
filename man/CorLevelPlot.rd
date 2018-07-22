@@ -23,16 +23,16 @@ CorLevelPlot(df,
     the following: column for transcript names (can be rownames); a column
     for log2 fold changes; a column for nominal or adjusted p-value.
     REQUIRED.}
-    \item{df}{ data-frame/matrix}
+    \item{datadf}{ data-frame/matrix}
     \item{x}{vector of column names in df}
     \item{y}{vector of column names in df to be correlated to x}
     \item{labCex}{size of the labels inside the plot area}
-    \item{strCorMethod}{one of "pearson", "kendall", "spearman"}
-    \item{strPalette}{one of RColorBrewer's palettes (see http://www.r-graph-gallery.com/38-rcolorbrewers-palettes/)}
-    \item{iNumColours}{number of colours to use in the palette (if too many chosen, the max will automatically be chosen)}
-    \item{boolReverse}{Reverse the palette? (TRUE/FALSE)}
-    \item{boolPlotRSquared}{plot R^2 values? (TRUE/FALSE)}
-    \item{strTitle}{plot title</li>
+    \item{corMethod}{one of "pearson", "kendall", "spearman"}
+    \item{paletteCol}{one of RColorBrewer's palettes (see http://www.r-graph-gallery.com/38-rcolorbrewers-palettes/)}
+    \item{paletteLength}{number of colours to use in the palette (if too many chosen, the max will automatically be chosen)}
+    \item{reversePalette}{Reverse the palette? (TRUE/FALSE)}
+    \item{plotRsquared}{plot R^2 values? (TRUE/FALSE)}
+    \item{main}{plot title</li>
 
 }
 \details{
