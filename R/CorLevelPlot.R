@@ -20,7 +20,8 @@ CorLevelPlot <- function(
     rotLabY = 0,
     colLabY = "black",
     fontLabY = 2,
-    col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
+    col = c("blue4", "blue3", "blue2", "blue1", "white",
+        "red1", "red2", "red3", "red4"),
     colourkey = TRUE,
     cexCorval = 1.0,
     fontCorval = 1,
@@ -41,18 +42,19 @@ CorLevelPlot <- function(
         stop("Please install lattice first.", call.=FALSE)
     }
 
-    require(lattice)
-
-    #Check to see if everything is numeric; if not, print a warning message
     for (i in 1:length(x)) {
         if(!is.numeric(data[,x[i]])) {
-            print(paste("Warning: ", x[i], " is not numeric - please check the source data as everything will be converted to a matrix", sep=""))
+            print(paste("Warning: ", x[i],
+                " is not numeric - please check the source data as everything will be converted to a matrix",
+                sep=""))
         }
     }
 
     for (i in 1:length(y)) {
         if(!is.numeric(data[,y[i]])) {
-            print(paste("Warning: ", y[i], " is not numeric - please check the source data as everything will be converted to a matrix", sep=""))
+            print(paste("Warning: ", y[i],
+                " is not numeric - please check the source data as everything will be converted to a matrix",
+                sep=""))
         }
     }
 
@@ -60,16 +62,19 @@ CorLevelPlot <- function(
     #	NAs are left NA
     #	Character (A-Z a-z) are converted to NA
     #	Character numbers are converted to integers
-    #	Factors re converted to numbers based on level ordering
+    #	Factors are converted to numbers based on level ordering
     xvals <- data.matrix(data[,which(colnames(data) %in% x)])
     yvals <- data.matrix(data[,which(colnames(data) %in% y)])
-    corvals <- cor(xvals, yvals, use = corUSE, method = corFUN)
+    corvals <- stats::cor(xvals, yvals, use = corUSE, method = corFUN)
 
     #Create a new df with same dimensions as corvals and fill with P values
     pvals <- corvals
     for (i in 1:ncol(xvals)) {
         for (j in 1:ncol(yvals)) {
-            pvals[i,j] <- cor.test(xvals[,i], yvals[,j], use = corUSE, method = corFUN)$p.value
+            pvals[i,j] <- stats::cor.test(xvals[,i],
+                yvals[,j],
+                use = corUSE,
+                method = corFUN)$p.value
             colnames(pvals)[j] <- colnames(yvals)[j]
         }
 
@@ -82,8 +87,6 @@ CorLevelPlot <- function(
     }
 
     #Determine max and min correlation values in order to define the range
-    #If all values are low, the range will be smaller
-    #This can be visually improved by also adjusting the colour scaling in leveplot() with 'at=seq(iLowerRange,iUpperRange,0.01)'
     max <- max(corvals)
     min <- min(corvals)
     if(abs(max)>abs(min)) {
@@ -99,19 +102,27 @@ CorLevelPlot <- function(
     }
 	
     #Define the colour scheme/palette
-    cols <- colorRampPalette(col)
+    cols <- grDevices::colorRampPalette(col)
 
-    #Create a new df with same dimensions as corvals and fill with significances encoded with asterisks
+    #Create a new df with same dimensions as corvals
+    #Fill with significances encoded with asterisks
     signif <- corvals
     for (i in 1:ncol(pvals)) {
-        signif[,i] <- c(symnum(pvals[,i], corr = FALSE, na = FALSE, cutpoints = signifCutpoints, symbols = signifSymbols))
+        signif[,i] <- c(stats::symnum(pvals[,i],
+            corr = FALSE,
+            na = FALSE,
+            cutpoints = signifCutpoints,
+            symbols = signifSymbols))
     }
 
-    #Create a new df with same dimensions as corvals and fill with r values merged with the encoded significances
+    #Create a new df with same dimensions as corvals
+    #Fill with r values merged with the encoded significances
     plotLabels <- corvals
     for (i in 1:nrow(corvals)) {
         for(j in 1:ncol(corvals)) {
-            plotLabels[i,j] <- paste(round(corvals[i,j],2), signif[i,j], sep="")
+            plotLabels[i,j] <- paste(round(corvals[i,j],2),
+                signif[i,j],
+                sep="")
             colnames(plotLabels)[j] <- colnames(corvals)[j]
         }
 
@@ -120,25 +131,46 @@ CorLevelPlot <- function(
 
     #Define a panel function for adding labels
     #Labels are passed with z as a third dimension
-    labels = function(x,y,z,...) {
-        lattice::panel.levelplot(x,y,z,...)
-        lattice::ltext(x, y, labels = plotLabels, cex = cexCorval, font = fontCorval)
+    labels <- function(x, y, z, ...) {
+        lattice::panel.levelplot(x, y, z, ...)
+        lattice::ltext(x, y,
+            labels = plotLabels,
+            cex = cexCorval,
+            font = fontCorval)
     }
 
     lattice::levelplot(data.matrix(corvals),
-        xlab = list(label = titleX, cex = cexTitleX, rot = rotTitleX, col = colTitleX, font = fontTitleX),
-        ylab = list(label = titleY, cex = cexTitleY, rot = rotTitleY, col = colTitleY, font = fontTitleY),
+        xlab = list(label = titleX,
+            cex = cexTitleX,
+            rot = rotTitleX,
+            col = colTitleX,
+            font = fontTitleX),
+        ylab = list(label = titleY,
+            cex = cexTitleY,
+            rot = rotTitleY,
+            col = colTitleY,
+            font = fontTitleY),
         panel = labels,
         pretty = TRUE,
         par.settings = list(panel.background = list(col = colBG)),
         scales = list(
-            x = list(cex = cexLabX, rot = rotLabX, col = colLabX, font = fontLabX),
-            y = list(cex = cexLabY, rot = rotLabY, col = colLabY, font = fontLabY),
+            x = list(cex = cexLabX,
+                rot = rotLabX,
+                col = colLabX,
+                font = fontLabX),
+            y = list(cex = cexLabY,
+                rot = rotLabY,
+                col = colLabY,
+                font = fontLabY),
             tck = axisTicks),
         aspect = "fill",
         col.regions = cols,
         cuts = 100,
         at = seq(iLowerRange, iUpperRange, 0.01),
-        main = list(label = main, cex = cexMain, rot = rotMain, col = colMain, font = fontMain),
+        main = list(label = main,
+            cex = cexMain,
+            rot = rotMain,
+            col = colMain,
+            font = fontMain),
         colorkey = colourkey)
 }

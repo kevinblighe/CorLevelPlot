@@ -7,10 +7,12 @@ Maintainer: Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
 Description: CorLevelPlot provides a quick and colourful way to visualise statistically significant correlations between any combination of categorical and continuous variables. Moreover, the statistical significancies of these correlations are also provided.
 License: GPL-3
 Imports:
-    lattice
+    lattice,
+    stats,
+    grDevices
 Suggests:
     knitr
 URL: https://github.com/kevinblighe/CorLevelPlot
-biocViews: Correlation, levelplot
+biocViews: GeneExpression, PrincipalComponent, 
 VignetteBuilder:
     knitr

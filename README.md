@@ -44,7 +44,7 @@ Install and load CorLevelPlot:
 
 The following code taken from [Tutorial for the WGCNA package for R - 1. Simulation of expression and trait data](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/Simulated-01-dataSimulation.pdf)
 
-```{r ex1, fig.height = 8, fig.width = 6, fig.cap = "Example 1: WGCNA trait-to-eigengene plot"}
+```{r ex1, fig.height = 8, fig.width = 8, fig.cap = "Example 1: WGCNA trait-to-eigengene plot"}
 
     # simulate trait-to-eigengene data
     no.obs <- 50
@@ -70,8 +70,8 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         rotTitleX = 0,
         colTitleX = "forestgreen",
         fontTitleX = 2,
-        titleY = "Y correlates",
-        cexTitleY = 2.0,
+        titleY = "Y\ncorrelates",
+        cexTitleY = 4.0,
         rotTitleY = 100,
         colTitleY = "gold",
         fontTitleY = 4,
@@ -102,6 +102,68 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```
 
+## Example 2: Iris dataset principal components analysis:
+
+```{r ex2, fig.height = 8, fig.width = 14, fig.cap = "Example 2: Iris dataset principal components analysis"}
+
+    library(datasets)
+    data(iris)
+
+    # order the categories in the 'Species' column
+    # CorLevelPlot will conver these to 1, 2, 3, ...
+    iris$Species <- factor(iris$Species, levels=c("setosa", "versicolor", "virginica"))
+
+    i <- CorLevelPlot(data = iris,
+        x = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
+        y = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
+        col = c("white", "cornsilk1", "yellow", "gold", "forestgreen", "darkgreen"),
+        cexCorval = 1.5,
+        fontCorval = 2,
+        rotLabX = 45,
+        main = "Iris correlates",
+        plotRsquared = TRUE)
+
+    pca <- stats::prcomp(iris[,c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")])
+    df <- data.frame(pca$x, iris)
+
+    ii <- CorLevelPlot(data = df,
+        x = c("PC1", "PC2", "PC3", "PC4"),
+        y = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
+        titleX = "Principal\ncomponents",
+        cexTitleX = 2.0,
+        rotTitleX = 0,
+        fontTitleX = 2,
+        titleY = "Iris components",
+        cexTitleY = 2.0,
+        rotTitleY = 90,
+        fontTitleY = 2,
+        col = c("blue1", "skyblue", "white", "pink", "red1"),
+        cexCorval = 1.5,
+        fontCorval = 2,
+        rotLabX = 45,
+        main = "Iris PC correlates",
+        plotRsquared = FALSE)
+
+    require(rasterVis)
+    require(gridExtra)
+    require(grid)
+
+    grid.arrange(
+        arrangeGrob(i,
+            top = textGrob("A",
+            x = unit(0.05,"npc"),
+            y = unit(0.9,"npc"),
+            just = c("left","top"),
+            gp = gpar(fontsize=32))),
+        arrangeGrob(ii,
+            top = textGrob("B",
+            x = unit(0.05,"npc"),
+            y = unit(0.9,"npc"),
+            just = c("left","top"),
+            gp = gpar(fontsize=32))),
+        ncol = 2)
+
+```
 
 
 ## Acknowledgments

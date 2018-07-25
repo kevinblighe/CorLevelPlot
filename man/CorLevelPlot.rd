@@ -27,7 +27,8 @@ CorLevelPlot(data,
     rotLabY = 0,
     colLabY = "black",
     fontLabY = 2,
-    col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
+    col = c("blue4", "blue3", "blue2", "blue1", "white",
+        "red1", "red2", "red3", "red4"),
     colourkey = TRUE,
     cexCorval = 1.0,
     fontCorval = 1,
@@ -45,43 +46,65 @@ CorLevelPlot(data,
     axisTicks = c(1,0))
 }
 \arguments{
-    \item{data}{A data-frame/matrix of test correlates. Can be categoricalor continuos variables. REQUIRED.}
-    \item{x}{A vector of column names in data - will be converted to numerical vaules. REQUIRED.}
-    \item{y}{A vector of column names in data - will be converted to numerical vaules. REQUIRED.}
+    \item{data}{A data-frame/matrix of test correlates. Can be categoricalor
+    continuos variables. REQUIRED.}
+    \item{x}{A vector of column names in data - will be converted to numerical
+    vaules. REQUIRED.}
+    \item{y}{A vector of column names in data - will be converted to numerical
+    vaules. REQUIRED.}
     \item{titleX}{X-axis title. DEFAULT = "". OPTIONAL.}
     \item{cexTitleX}{X-axis title cex. DEFAULT = 1.0. OPTIONAL.}
     \item{rotTitleX}{X-axis title rotation in degrees. DEFAULT = 0. OPTIONAL.}
     \item{colTitleX}{X-axis title colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontTitleX}{X-axis title font style. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{fontTitleX}{X-axis title font style. 1, plain; 2, bold; 3, italic; 4,
+    bold-italic. DEFAULT = 2. OPTIONAL.}
     \item{titleY}{Y-axis title. DEFAULT = "". OPTIONAL.}
     \item{cexTitleY}{Y-axis title cex. DEFAULT = 1.0. OPTIONAL.}
     \item{rotTitleY}{Y-axis title rotation in degrees. DEFAULT = 0. OPTIONAL.}
     \item{colTitleY}{Y-axis title colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontTitleY}{Y-axis title font style. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{fontTitleY}{Y-axis title font style. 1, plain; 2, bold; 3, italic; 4,
+    bold-italic. DEFAULT = 2. OPTIONAL.}
     \item{cexLabX}{X-axis labels cex. DEFAULT = 1.0. OPTIONAL.}
     \item{rotLabX}{X-axis labels rotation in degrees. DEFAULT = 0. OPTIONAL.}
     \item{colLabX}{X-axis labels colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontLabX}{X-axis labels font style. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{fontLabX}{X-axis labels font style. 1, plain; 2, bold; 3, italic; 4,
+    bold-italic. DEFAULT = 2. OPTIONAL.}
     \item{cexLabY}{Y-axis labels cex. DEFAULT = 1.0. OPTIONAL.}
     \item{rotLabY}{Y-axis labels rotation in degrees. DEFAULT = 0. OPTIONAL.}
     \item{colLabY}{Y-axis labels colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontLabY}{Y-axis labels font style. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 2. OPTIONAL.}
-    \item{col}{Colour shade gradient for RColorBrewer. DEFAULT = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"). OPTIONAL.}
-    \item{colourkey}{Display colour key? TRUE / FALSE. DEFAULT = TRUE. OPTIONAL.}
-    \item{cexCorval}{Cex for correlation values to display withn plot. DEFAULT = 1.0. OPTIONAL.}
-    \item{fontCorval}{Font style for correlation values to display withn plot. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 1. OPTIONAL.}
+    \item{fontLabY}{Y-axis labels font style. 1, plain; 2, bold; 3, italic; 4,
+    bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{col}{Colour shade gradient for RColorBrewer. DEFAULT = c("blue4",
+    "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4").
+    OPTIONAL.}
+    \item{colourkey}{Display colour key? TRUE / FALSE. DEFAULT = TRUE.
+    OPTIONAL.}
+    \item{cexCorval}{Cex for correlation values to display withn plot. DEFAULT
+    = 1.0. OPTIONAL.}
+    \item{fontCorval}{Font style for correlation values to display withn plot.
+    1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 1. OPTIONAL.}
     \item{main}{Plot title. DEFAULT = "". OPTIONAL.}
     \item{cexMain}{Plot title cex. DEFAULT = 2. OPTIONAL.}
     \item{rotMain}{Plot title rotation in degrees. DEFAULT = 0. OPTIONAL.}
     \item{colMain}{Plot title colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontMain}{Plot title font style. 1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 2. OPTIONAL.}
-    \item{corFUN}{Correlation method: "pearson", "spearman", or "kendall". DEFAULT = "pearson". OPTIONAL.}
-    \item{corUSE}{Method for handling missing values (see documentation for cor function via ?cor). "everything", "all.obs", "complete.obs", "na.or.complete", or "pairwise.complete.obs". DEFAULT = "pairwise.complete.obs". OPTIONAL.}
-    \item{signifSymbols}{Statistical significance symbols to display beside correlation values. DEFAULT = c("***", "**", "*", ""). OPTIONAL.}
-    \item{signifCutpoints}{Cut-points for statistical significance. DEFAULT = c(0, 0.001, 0.01, 0.05, 1). OPTIONAL.}
+    \item{fontMain}{Plot title font style. 1, plain; 2, bold; 3, italic; 4,
+    bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{corFUN}{Correlation method: "pearson", "spearman", or "kendall".
+    DEFAULT = "pearson". OPTIONAL.}
+    \item{corUSE}{Method for handling missing values (see documentation for cor
+    function via ?cor). "everything", "all.obs", "complete.obs",
+    "na.or.complete", or "pairwise.complete.obs". DEFAULT =
+    "pairwise.complete.obs". OPTIONAL.}
+    \item{signifSymbols}{Statistical significance symbols to display beside
+    correlation values. DEFAULT = c("***", "**", "*", ""). OPTIONAL.}
+    \item{signifCutpoints}{Cut-points for statistical significance. DEFAULT =
+    c(0, 0.001, 0.01, 0.05, 1). OPTIONAL.}
     \item{colBG}{Plot background colour. DEFAULT = "white". OPTIONAL.}
-    \item{plotRsquared}{Plot R-squared values. TRUE / FALSE. DEFAULT = FALSE. OPTIONAL.}
-    \item{axisTicks}{Display ticks on axes? 'c(0,0)', no ticks; 'c(1,0)', left and bottom axes; 'c(0,1)', top and right axes; 'c1,1)', all axes. DEFAULT = c(1,0). OPTIONAL.}
+    \item{plotRsquared}{Plot R-squared values. TRUE / FALSE. DEFAULT = FALSE.
+    OPTIONAL.}
+    \item{axisTicks}{Display ticks on axes? 'c(0,0)', no ticks; 'c(1,0)', left
+    and bottom axes; 'c(0,1)', top and right axes; 'c1,1)', all axes. DEFAULT =
+    c(1,0). OPTIONAL.}
 }
 \details{
 CorLevelPlot provides a quick and colourful way to visualise
@@ -106,11 +129,13 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
     MEgreen <- rnorm(no.obs)
     scaledy <- MEgreen * ESgreen + sqrt(1 - ESgreen ^ 2) * rnorm(no.obs)
     y <- ifelse( scaledy > median(scaledy), 2, 1)
-    MEturquoise <- ESturquoise * scaledy + sqrt(1 - ESturquoise ^ 2) * rnorm(no.obs)
+    MEturquoise <- ESturquoise * scaledy +
+        sqrt(1 - ESturquoise ^ 2) * rnorm(no.obs)
     MEblue <- 0.6 * MEturquoise + sqrt(1 - 0.6 ^ 2) * rnorm(no.obs)
     MEbrown <- ESbrown * scaledy + sqrt(1 - ESbrown ^ 2) * rnorm(no.obs)
     MEyellow <- ESyellow * scaledy + sqrt(1 - ESyellow ^ 2) * rnorm(no.obs)
-    ModuleEigengeneNetwork1 <- data.frame(y, MEturquoise, MEblue, MEbrown, MEgreen, MEyellow)
+    ModuleEigengeneNetwork1 <- data.frame(y, MEturquoise, MEblue, MEbrown,
+        MEgreen, MEyellow)
 
     CorLevelPlot(data = ModuleEigengeneNetwork1,
         x = c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"),
@@ -133,7 +158,8 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
         rotLabY = 30,
         colLabY = "royalblue",
         fontLabY = 1,
-        col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
+        col = c("blue4", "blue3", "blue2", "blue1", "white",
+            "red1", "red2", "red3", "red4"),
         colourkey = TRUE,
         cexCorval = 1.0,
         fontCorval = 4,
