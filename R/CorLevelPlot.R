@@ -2,13 +2,40 @@ CorLevelPlot <- function(
     data,
     x,
     y,
-    labCex = 1.0,
-    corMethod = "Pearson",
-    paletteCol,
-    paletteLength,
-    reversePalette = FALSE,
+    titleX = "",
+    titleY = "",
+    cexTitleX = 1.0,
+    rotTitleX = 0,
+    colTitleX = "black",
+    fontTitleX = 2,
+    cexTitleY = 1.0,
+    rotTitleY = 0,
+    colTitleY = "black",
+    fontTitleY = 2,
+    cexLabX = 1.0,
+    rotLabX = 0,
+    colLabX = "black",
+    fontLabX = 2,
+    cexLabY = 1.0,
+    rotLabY = 0,
+    colLabY = "black",
+    fontLabY = 2,
+    col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
+    colourkey = TRUE,
+    cexCorval = 1.0,
+    fontCorval = 1,
+    main = "",
+    cexMain = 2,
+    rotMain = 0,
+    colMain = "black",
+    fontMain = 2,
+    corFUN = "pearson",
+    corUSE = "pairwise.complete.obs",
+    signifSymbols = c("***", "**", "*", ""),
+    signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
+    colBG = "white",
     plotRsquared = FALSE,
-    main = "")
+    axisTicks = c(1,0))
 {
     if(!requireNamespace("lattice")) {
         stop("Please install lattice first.", call.=FALSE)
@@ -46,13 +73,13 @@ CorLevelPlot <- function(
     #	Factors re converted to numbers based on level ordering
     xvals <- data.matrix(data[,which(colnames(data) %in% x)])
     yvals <- data.matrix(data[,which(colnames(data) %in% y)])
-    corvals <- cor(xvals, yvals, use="pairwise.complete.obs", method=corMethod)
+    corvals <- cor(xvals, yvals, use = corUSE, method = corFUN)
 
     #Create a new df with same dimensions as corvals and fill with P values
     pvals <- corvals
     for (i in 1:ncol(xvals)) {
         for (j in 1:ncol(yvals)) {
-            pvals[i,j] <- cor.test(xvals[,i], yvals[,j], use="pairwise.complete.obs", method=corMethod)$p.value
+            pvals[i,j] <- cor.test(xvals[,i], yvals[,j], use = corUSE, method = corFUN)$p.value
             colnames(pvals)[j] <- colnames(yvals)[j]
         }
 
@@ -82,16 +109,12 @@ CorLevelPlot <- function(
     }
 	
     #Define the colour scheme/palette
-    if (reversePalette==TRUE) {
-        cols <- colorRampPalette(rev(brewer.pal(paletteLength, paletteCol)))
-    } else {
-        cols <- colorRampPalette(brewer.pal(paletteLength, paletteCol))
-    }
+    cols <- colorRampPalette(col)
 
     #Create a new df with same dimensions as corvals and fill with significances encoded with asterisks
     signif <- corvals
     for (i in 1:ncol(pvals)) {
-        signif[,i] <- c(symnum(pvals[,i], corr=FALSE, na=FALSE, cutpoints=c(0, 0.001, 0.01, 0.05, 1), symbols=c("***", "**", "*", "")))
+        signif[,i] <- c(symnum(pvals[,i], corr = FALSE, na = FALSE, cutpoints = signifCutpoints, symbols = signifSymbols))
     }
 
     #Create a new df with same dimensions as corvals and fill with r values merged with the encoded significances
@@ -107,11 +130,25 @@ CorLevelPlot <- function(
 
     #Define a panel function for adding labels
     #Labels are passed with z as a third dimension
-    labels=function(x,y,z,...) {
+    labels = function(x,y,z,...) {
         panel.levelplot(x,y,z,...)
-        ltext(x, y, labels=plotLabels, cex=labCex, font=1)
-        #panel.text(x, y, plotLabels[x,y], cex=labcex)
+        ltext(x, y, labels = plotLabels, cex = cexCorval, font = fontCorval)
     }
 
-    levelplot(data.matrix(corvals), panel = labels, xlab = "", ylab = "", pretty = TRUE, scales = list(x = list(rot = 45)), aspect = "fill", col.regions = cols, main = main, cuts = 100, at = seq(iLowerRange, iUpperRange, 0.01))
+    levelplot(data.matrix(corvals),
+        xlab = list(label = titleX, cex = cexTitleX, rot = rotTitleX, col = colTitleX, font = fontTitleX),
+        ylab = list(label = titleY, cex = cexTitleY, rot = rotTitleY, col = colTitleY, font = fontTitleY),
+        panel = labels,
+        pretty = TRUE,
+        par.settings = list(panel.background = list(col = colBG)),
+        scales = list(
+            x = list(cex = cexLabX, rot = rotLabX, col = colLabX, font = fontLabX),
+            y = list(cex = cexLabY, rot = rotLabY, col = colLabY, font = fontLabY),
+            tck = axisTicks),
+        aspect = "fill",
+        col.regions = cols,
+        cuts = 100,
+        at = seq(iLowerRange, iUpperRange, 0.01),
+        main = list(label = main, cex = cexMain, rot = rotMain, col = colMain, font = fontMain),
+        colorkey = colourkey)
 }

@@ -44,7 +44,7 @@ Install and load CorLevelPlot:
 
 The following code taken from [Tutorial for the WGCNA package for R - 1. Simulation of expression and trait data](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/Simulated-01-dataSimulation.pdf)
 
-```{r ex1, fig.height = 8, fig.width = 6, fig.cap = "Example 1: plot the most basic plot"}
+```{r ex1, fig.height = 8, fig.width = 6, fig.cap = "Example 1: WGCNA trait-to-eigengene plot"}
 
     # simulate trait-to-eigengene data
     no.obs <- 50
@@ -62,17 +62,46 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
     MEyellow <- ESyellow * scaledy + sqrt(1 - ESyellow ^ 2) * rnorm(no.obs)
     ModuleEigengeneNetwork1 <- data.frame(y, MEturquoise, MEblue, MEbrown, MEgreen, MEyellow)
 
-    CorLevelPlot(data = ModuleEigengeneNetwork1, x = c("y", "MEturquoise", "MEblue"), y = c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"), labCex = 0.8, corMethod = "spearman", paletteCol = "RdBu", paletteLength = 9, reversePalette = TRUE, plotRsquared = FALSE, main = "WGCNA example")
+    CorLevelPlot(data = ModuleEigengeneNetwork1,
+        x = c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"),
+        y = c("y", "MEturquoise", "MEblue", "MEbrown", "MEgreen", "MEyellow"),
+        titleX = "X correlates",
+        cexTitleX = 3.0,
+        rotTitleX = 0,
+        colTitleX = "forestgreen",
+        fontTitleX = 2,
+        titleY = "Y correlates",
+        cexTitleY = 2.0,
+        rotTitleY = 100,
+        colTitleY = "gold",
+        fontTitleY = 4,
+        cexLabX = 1.0,
+        rotLabX = 45,
+        colLabX = "grey20",
+        fontLabX = 1,
+        cexLabY = 1.0,
+        rotLabY = 30,
+        colLabY = "royalblue",
+        fontLabY = 1,
+        col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
+        colourkey = TRUE,
+        cexCorval = 1.0,
+        fontCorval = 4,
+        main = "WGCNA example",
+        cexMain = 2,
+        rotMain = 360,
+        colMain = "red4",
+        fontMain = 4,
+        corFUN = "pearson",
+        corUSE = "pairwise.complete.obs",
+        signifSymbols = c("***", "**", "*", ""),
+        signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
+        colBG = "white",
+        plotRsquared = TRUE,
+        axisTicks = c(1,1))
 
 ```
 
-
-## Example 10: plot multiple plots on the same page:
-
-```{r ex10, fig.height = 8, fig.width = 11, fig.cap = "Example 10: plot multiple plots on the same page"}
-
-
-```
 
 
 ## Acknowledgments
