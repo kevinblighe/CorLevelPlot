@@ -4,12 +4,10 @@ Title: Visualise correlation results and test significancies of these
 Version: 0.99.0
 Author: Kevin Blighe
 Maintainer: Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
-Description: 
+Description: CorLevelPlot provides a quick and colourful way to visualise statistically significant correlations between any combination of categorical and continuous variables. Moreover, the statistical significancies of these correlations are also provided.
 License: GPL-3
 Imports:
-    lattice,
-    latticeExtra,
-    RColorBrewer
+    lattice
 Suggests:
     knitr
 URL: https://github.com/kevinblighe/CorLevelPlot

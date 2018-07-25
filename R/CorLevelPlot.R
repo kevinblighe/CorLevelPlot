@@ -41,17 +41,7 @@ CorLevelPlot <- function(
         stop("Please install lattice first.", call.=FALSE)
     }
 
-    if(!requireNamespace("latticeExtra")) {
-        stop("Please install lattice first.", call.=FALSE)
-    }
-
-    if(!requireNamespace("RColorBrewer")) {
-        stop("Please install lattice first.", call.=FALSE)
-    }
-
     require(lattice)
-    require(latticeExtra)
-    require(RColorBrewer)
 
     #Check to see if everything is numeric; if not, print a warning message
     for (i in 1:length(x)) {
@@ -88,7 +78,7 @@ CorLevelPlot <- function(
 
     #Are we plotting R^2 values?
     if (plotRsquared==TRUE) {
-        corvals <- corvals^2
+        corvals <- corvals ^ 2
     }
 
     #Determine max and min correlation values in order to define the range
@@ -131,11 +121,11 @@ CorLevelPlot <- function(
     #Define a panel function for adding labels
     #Labels are passed with z as a third dimension
     labels = function(x,y,z,...) {
-        panel.levelplot(x,y,z,...)
-        ltext(x, y, labels = plotLabels, cex = cexCorval, font = fontCorval)
+        lattice::panel.levelplot(x,y,z,...)
+        lattice::ltext(x, y, labels = plotLabels, cex = cexCorval, font = fontCorval)
     }
 
-    levelplot(data.matrix(corvals),
+    lattice::levelplot(data.matrix(corvals),
         xlab = list(label = titleX, cex = cexTitleX, rot = rotTitleX, col = colTitleX, font = fontTitleX),
         ylab = list(label = titleY, cex = cexTitleY, rot = rotTitleY, col = colTitleY, font = fontTitleY),
         panel = labels,

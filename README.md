@@ -97,7 +97,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         signifSymbols = c("***", "**", "*", ""),
         signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
         colBG = "white",
-        plotRsquared = TRUE,
+        plotRsquared = FALSE,
         axisTicks = c(1,1))
 
 ```

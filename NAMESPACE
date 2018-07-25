@@ -1,3 +1,5 @@
 export("CorLevelPlot")
 
-importFrom(lattice, RColorBrewer)
+importFrom("lattice", "levelplot", "ltext", "panel.levelplot")
+importFrom("grDevices", "colorRampPalette")
+importFrom("stats", "cor", "cor.test", "symnum")
