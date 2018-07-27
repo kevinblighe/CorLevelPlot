@@ -20,6 +20,7 @@ CorLevelPlot <- function(
     rotLabY = 0,
     colLabY = "black",
     fontLabY = 2,
+    posLab = "bottomleft",
     col = c("blue4", "blue3", "blue2", "blue1", "white",
         "red1", "red2", "red3", "red4"),
     colourkey = TRUE,
@@ -35,8 +36,7 @@ CorLevelPlot <- function(
     signifSymbols = c("***", "**", "*", ""),
     signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
     colBG = "white",
-    plotRsquared = FALSE,
-    axisTicks = c(1,0))
+    plotRsquared = FALSE)
 {
     if(!requireNamespace("lattice")) {
         stop("Please install lattice first.", call.=FALSE)
@@ -129,6 +129,20 @@ CorLevelPlot <- function(
         rownames(plotLabels)[i] <- rownames(corvals)[i]
     }
 
+    if (posLab == "bottomleft") {
+        posLab = 1
+        axisTicks = c(1,0)
+    } else if (posLab == "topright") {
+        posLab = 2
+        axisTicks = c(0,1)
+    } else if (posLab == "all") {
+        posLab = 3
+        axisTicks = c(1,1)
+    } else if (posLab == "none") {
+        posLab = 0
+        axisTicks = c(0,0)
+    }
+
     #Define a panel function for adding labels
     #Labels are passed with z as a third dimension
     labels <- function(x, y, z, ...) {
@@ -139,7 +153,8 @@ CorLevelPlot <- function(
             font = fontCorval)
     }
 
-    lattice::levelplot(data.matrix(corvals),
+    lattice::levelplot(
+        data.matrix(corvals),
         xlab = list(label = titleX,
             cex = cexTitleX,
             rot = rotTitleX,
@@ -162,7 +177,8 @@ CorLevelPlot <- function(
                 rot = rotLabY,
                 col = colLabY,
                 font = fontLabY),
-            tck = axisTicks),
+            tck = axisTicks,
+            alternating = posLab),
         aspect = "fill",
         col.regions = cols,
         cuts = 100,

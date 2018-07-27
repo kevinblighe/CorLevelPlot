@@ -27,6 +27,7 @@ CorLevelPlot(data,
     rotLabY = 0,
     colLabY = "black",
     fontLabY = 2,
+    posLab = "bottomleft",
     col = c("blue4", "blue3", "blue2", "blue1", "white",
         "red1", "red2", "red3", "red4"),
     colourkey = TRUE,
@@ -42,8 +43,7 @@ CorLevelPlot(data,
     signifSymbols = c("***", "**", "*", ""),
     signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
     colBG = "white",
-    plotRsquared = FALSE,
-    axisTicks = c(1,0))
+    plotRsquared = FALSE)
 }
 \arguments{
     \item{data}{A data-frame/matrix of test correlates. Can be categoricalor
@@ -74,6 +74,7 @@ CorLevelPlot(data,
     \item{colLabY}{Y-axis labels colour. DEFAULT = "black". OPTIONAL.}
     \item{fontLabY}{Y-axis labels font style. 1, plain; 2, bold; 3, italic; 4,
     bold-italic. DEFAULT = 2. OPTIONAL.}
+    \item{posLab}{Positioning of the X- and Y-axis labels. "bottomleft", bottom and left; "topright", top and right; "all", bottom / top and left /right; "none", no labels. DEFAULT = "bottomleft". OPTIONAL.}
     \item{col}{Colour shade gradient for RColorBrewer. DEFAULT = c("blue4",
     "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4").
     OPTIONAL.}
@@ -102,9 +103,6 @@ CorLevelPlot(data,
     \item{colBG}{Plot background colour. DEFAULT = "white". OPTIONAL.}
     \item{plotRsquared}{Plot R-squared values. TRUE / FALSE. DEFAULT = FALSE.
     OPTIONAL.}
-    \item{axisTicks}{Display ticks on axes? 'c(0,0)', no ticks; 'c(1,0)', left
-    and bottom axes; 'c(0,1)', top and right axes; 'c1,1)', all axes. DEFAULT =
-    c(1,0). OPTIONAL.}
 }
 \details{
 CorLevelPlot provides a quick and colourful way to visualise
@@ -158,6 +156,7 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
         rotLabY = 30,
         colLabY = "royalblue",
         fontLabY = 1,
+        posLab = "bottomleft",
         col = c("blue4", "blue3", "blue2", "blue1", "white",
             "red1", "red2", "red3", "red4"),
         colourkey = TRUE,
@@ -173,6 +172,5 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
         signifSymbols = c("***", "**", "*", ""),
         signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
         colBG = "white",
-        plotRsquared = TRUE,
-        axisTicks = c(1,1))
+        plotRsquared = FALSE)
 }

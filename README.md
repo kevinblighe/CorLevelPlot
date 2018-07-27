@@ -83,6 +83,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         rotLabY = 30,
         colLabY = "royalblue",
         fontLabY = 1,
+        posLab = "bottomleft",
         col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
         colourkey = TRUE,
         cexCorval = 1.0,
@@ -97,8 +98,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         signifSymbols = c("***", "**", "*", ""),
         signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
         colBG = "white",
-        plotRsquared = FALSE,
-        axisTicks = c(1,1))
+        plotRsquared = FALSE)
 
 ```
 
@@ -119,6 +119,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         col = c("white", "cornsilk1", "yellow", "gold", "forestgreen", "darkgreen"),
         cexCorval = 1.5,
         fontCorval = 2,
+        posLab = "all",
         rotLabX = 45,
         main = "Iris correlates",
         plotRsquared = TRUE)
@@ -137,6 +138,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         cexTitleY = 2.0,
         rotTitleY = 90,
         fontTitleY = 2,
+        posLab = "topright",
         col = c("blue1", "skyblue", "white", "pink", "red1"),
         cexCorval = 1.5,
         fontCorval = 2,
