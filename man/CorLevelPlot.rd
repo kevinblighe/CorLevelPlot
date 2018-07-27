@@ -49,12 +49,12 @@ CorLevelPlot(data,
     plotRsquared = FALSE)
 }
 \arguments{
-    \item{data}{A data-frame/matrix of test correlates. Can be categoricalor
-    continuos variables. REQUIRED.}
+    \item{data}{A data-frame/matrix of test correlates. Can be categorical or
+    continuous variables. REQUIRED.}
     \item{x}{A vector of column names in data - will be converted to numerical
-    vaules. REQUIRED.}
+    values. REQUIRED.}
     \item{y}{A vector of column names in data - will be converted to numerical
-    vaules. REQUIRED.}
+    values. REQUIRED.}
     \item{titleX}{X-axis title. DEFAULT = "". OPTIONAL.}
     \item{cexTitleX}{X-axis title cex. DEFAULT = 1.0. OPTIONAL.}
     \item{rotTitleX}{X-axis title rotation in degrees. DEFAULT = 0. OPTIONAL.}
@@ -85,13 +85,12 @@ CorLevelPlot(data,
     OPTIONAL.}
     \item{posColKey}{Position of colour key. "bottom", "left", "top", "right".
     DEFAULT = "right". OPTIONAL.}
-    \item{cexLabColKey}{Cex for colour key labels. DEFAULT = 1.0. OPTIONAL.}
-    \item{cexCorval}{Cex for correlation values to display withn plot. DEFAULT
-    = 1.0. OPTIONAL.}
+    \item{cexLabColKey}{Colour key labels cex. DEFAULT = 1.0. OPTIONAL.}
+    \item{cexCorval}{Correlation values cex. DEFAULT = 1.0. OPTIONAL.}
     \item{colCorval}{Correlation values colour. DEFAULT = "black". OPTIONAL.}
-    \item{fontCorval}{Font style for correlation values to display withn plot.
-    1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 1. OPTIONAL.}
-    \item{scale}{Scale the colour range to max and min cor values.
+    \item{fontCorval}{Correlation values font style. 1, plain; 2, bold; 3,
+    italic; 4, bold-italic. DEFAULT = 1. OPTIONAL.}
+    \item{scale}{Scale the colour range to max and min cor values?
     DEFAULT = TRUE. OPTIONAL.}
     \item{main}{Plot title. DEFAULT = "". OPTIONAL.}
     \item{cexMain}{Plot title cex. DEFAULT = 2. OPTIONAL.}
@@ -110,7 +109,7 @@ CorLevelPlot(data,
     \item{signifCutpoints}{Cut-points for statistical significance. DEFAULT =
     c(0, 0.001, 0.01, 0.05, 1). OPTIONAL.}
     \item{colFrame}{Frame colour. DEFAULT = "white". OPTIONAL.}
-    \item{plotRsquared}{Plot R-squared values. TRUE / FALSE. DEFAULT = FALSE.
+    \item{plotRsquared}{Plot R-squared values? TRUE / FALSE. DEFAULT = FALSE.
     OPTIONAL.}
 }
 \details{

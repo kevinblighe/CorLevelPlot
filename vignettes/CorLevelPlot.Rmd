@@ -40,7 +40,7 @@ Install and load CorLevelPlot:
 
 ```
 
-## Example 1: WGCNA (weighted gene co-expression analysis) simulated data:
+## Example 1: WGCNA (weighted gene co-expression network analysis) simulated data:
 
 The following code taken from [Tutorial for the WGCNA package for R - 1. Simulation of expression and trait data](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/Simulated-01-dataSimulation.pdf)
 
@@ -174,7 +174,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```
 
-## Example 3: World Health Organization (WHO) monica data:
+## Example 3: World Health Organization (WHO) MONICA data:
 
 ```{r ex3, fig.height = 4, fig.width = 14, fig.cap = "Example 3: World Health Organization (WHO) monica data"}
 
