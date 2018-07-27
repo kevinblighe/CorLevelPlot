@@ -10,11 +10,11 @@ CorLevelPlot(data,
     x,
     y,
     titleX = "",
-    titleY = "",
     cexTitleX = 1.0,
     rotTitleX = 0,
     colTitleX = "black",
     fontTitleX = 2,
+    titleY = "",
     cexTitleY = 1.0,
     rotTitleY = 0,
     colTitleY = "black",
@@ -30,9 +30,12 @@ CorLevelPlot(data,
     posLab = "bottomleft",
     col = c("blue4", "blue3", "blue2", "blue1", "white",
         "red1", "red2", "red3", "red4"),
-    colourkey = TRUE,
+    posColKey = "right",
+    cexLabColKey = 1.0,
     cexCorval = 1.0,
+    colCorval = "black",
     fontCorval = 1,
+    scale = TRUE,
     main = "",
     cexMain = 2,
     rotMain = 0,
@@ -42,7 +45,7 @@ CorLevelPlot(data,
     corUSE = "pairwise.complete.obs",
     signifSymbols = c("***", "**", "*", ""),
     signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
-    colBG = "white",
+    colFrame = "white",
     plotRsquared = FALSE)
 }
 \arguments{
@@ -74,16 +77,22 @@ CorLevelPlot(data,
     \item{colLabY}{Y-axis labels colour. DEFAULT = "black". OPTIONAL.}
     \item{fontLabY}{Y-axis labels font style. 1, plain; 2, bold; 3, italic; 4,
     bold-italic. DEFAULT = 2. OPTIONAL.}
-    \item{posLab}{Positioning of the X- and Y-axis labels. "bottomleft", bottom and left; "topright", top and right; "all", bottom / top and left /right; "none", no labels. DEFAULT = "bottomleft". OPTIONAL.}
+    \item{posLab}{Positioning of the X- and Y-axis labels. "bottomleft", bottom
+    and left; "topright", top and right; "all", bottom / top and left /right;
+    "none", no labels. DEFAULT = "bottomleft". OPTIONAL.}
     \item{col}{Colour shade gradient for RColorBrewer. DEFAULT = c("blue4",
     "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4").
     OPTIONAL.}
-    \item{colourkey}{Display colour key? TRUE / FALSE. DEFAULT = TRUE.
-    OPTIONAL.}
+    \item{posColKey}{Position of colour key. "bottom", "left", "top", "right".
+    DEFAULT = "right". OPTIONAL.}
+    \item{cexLabColKey}{Cex for colour key labels. DEFAULT = 1.0. OPTIONAL.}
     \item{cexCorval}{Cex for correlation values to display withn plot. DEFAULT
     = 1.0. OPTIONAL.}
+    \item{colCorval}{Correlation values colour. DEFAULT = "black". OPTIONAL.}
     \item{fontCorval}{Font style for correlation values to display withn plot.
     1, plain; 2, bold; 3, italic; 4, bold-italic. DEFAULT = 1. OPTIONAL.}
+    \item{scale}{Scale the colour range to max and min cor values.
+    DEFAULT = TRUE. OPTIONAL.}
     \item{main}{Plot title. DEFAULT = "". OPTIONAL.}
     \item{cexMain}{Plot title cex. DEFAULT = 2. OPTIONAL.}
     \item{rotMain}{Plot title rotation in degrees. DEFAULT = 0. OPTIONAL.}
@@ -100,7 +109,7 @@ CorLevelPlot(data,
     correlation values. DEFAULT = c("***", "**", "*", ""). OPTIONAL.}
     \item{signifCutpoints}{Cut-points for statistical significance. DEFAULT =
     c(0, 0.001, 0.01, 0.05, 1). OPTIONAL.}
-    \item{colBG}{Plot background colour. DEFAULT = "white". OPTIONAL.}
+    \item{colFrame}{Frame colour. DEFAULT = "white". OPTIONAL.}
     \item{plotRsquared}{Plot R-squared values. TRUE / FALSE. DEFAULT = FALSE.
     OPTIONAL.}
 }
@@ -159,9 +168,12 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
         posLab = "bottomleft",
         col = c("blue4", "blue3", "blue2", "blue1", "white",
             "red1", "red2", "red3", "red4"),
-        colourkey = TRUE,
+        posColKey = "right",
+        cexLabColKey = 1.0,
         cexCorval = 1.0,
+        colCorval = "black",
         fontCorval = 4,
+        scale = TRUE,
         main = "WGCNA example",
         cexMain = 2,
         rotMain = 360,
@@ -171,6 +183,6 @@ Kevin Blighe <kevin@clinicalbioinformatics.co.uk>
         corUSE = "pairwise.complete.obs",
         signifSymbols = c("***", "**", "*", ""),
         signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
-        colBG = "white",
+        colFrame = "white",
         plotRsquared = FALSE)
 }

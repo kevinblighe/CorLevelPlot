@@ -3,11 +3,11 @@ CorLevelPlot <- function(
     x,
     y,
     titleX = "",
-    titleY = "",
     cexTitleX = 1.0,
     rotTitleX = 0,
     colTitleX = "black",
     fontTitleX = 2,
+    titleY = "",
     cexTitleY = 1.0,
     rotTitleY = 0,
     colTitleY = "black",
@@ -23,9 +23,12 @@ CorLevelPlot <- function(
     posLab = "bottomleft",
     col = c("blue4", "blue3", "blue2", "blue1", "white",
         "red1", "red2", "red3", "red4"),
-    colourkey = TRUE,
+    posColKey = "right",
+    cexLabColKey = 1.0,
     cexCorval = 1.0,
+    colCorval = "black",
     fontCorval = 1,
+    scale = TRUE,
     main = "",
     cexMain = 2,
     rotMain = 0,
@@ -35,7 +38,7 @@ CorLevelPlot <- function(
     corUSE = "pairwise.complete.obs",
     signifSymbols = c("***", "**", "*", ""),
     signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
-    colBG = "white",
+    colFrame = "white",
     plotRsquared = FALSE)
 {
     if(!requireNamespace("lattice")) {
@@ -87,20 +90,28 @@ CorLevelPlot <- function(
     }
 
     #Determine max and min correlation values in order to define the range
-    max <- max(corvals)
-    min <- min(corvals)
-    if(abs(max)>abs(min)) {
-        iUpperRange <- max+0.05
-        iLowerRange <- (max*(-1))-0.05
-    } else {
-        iUpperRange <- abs(min)+0.05
-        iLowerRange <- min-0.05
-    }
-    if (plotRsquared==TRUE) {
-        iUpperRange <- max+0.1
+    if (scale == FALSE && plotRsquared == TRUE) {
+        iUpperRange <- 1
         iLowerRange <- 0
+    } else if (scale == FALSE && plotRsquared == FALSE) {
+        iUpperRange <- 1
+        iLowerRange <- -1
+    } else if (scale == TRUE) {
+        max <- max(corvals)
+        min <- min(corvals)
+        if(abs(max)>abs(min)) {
+            iUpperRange <- max+0.01
+            iLowerRange <- (max*(-1))-0.01
+        } else {
+            iUpperRange <- abs(min)+0.01
+            iLowerRange <- min-0.01
+        }
+        if (plotRsquared==TRUE) {
+            iUpperRange <- max+0.1
+            iLowerRange <- 0
+        }
     }
-	
+
     #Define the colour scheme/palette
     cols <- grDevices::colorRampPalette(col)
 
@@ -150,6 +161,7 @@ CorLevelPlot <- function(
         lattice::ltext(x, y,
             labels = plotLabels,
             cex = cexCorval,
+            col = colCorval,
             font = fontCorval)
     }
 
@@ -167,7 +179,7 @@ CorLevelPlot <- function(
             font = fontTitleY),
         panel = labels,
         pretty = TRUE,
-        par.settings = list(panel.background = list(col = colBG)),
+        par.settings = list(panel.background = list(col = colFrame)),
         scales = list(
             x = list(cex = cexLabX,
                 rot = rotLabX,
@@ -188,5 +200,7 @@ CorLevelPlot <- function(
             rot = rotMain,
             col = colMain,
             font = fontMain),
-        colorkey = colourkey)
+        colorkey = list(space = posColKey,
+            labels = list(cex = cexLabColKey)))
 }
+

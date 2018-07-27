@@ -85,10 +85,12 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         fontLabY = 1,
         posLab = "bottomleft",
         col = c("blue4", "blue3", "blue2", "blue1", "white", "red1", "red2", "red3", "red4"),
-        colourkey = TRUE,
+        posColKey = "right",
+        cexLabColKey = 1.2,
         cexCorval = 1.0,
         fontCorval = 4,
         main = "WGCNA example",
+        scale = FALSE,
         cexMain = 2,
         rotMain = 360,
         colMain = "red4",
@@ -97,7 +99,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         corUSE = "pairwise.complete.obs",
         signifSymbols = c("***", "**", "*", ""),
         signifCutpoints = c(0, 0.001, 0.01, 0.05, 1),
-        colBG = "white",
+        colFrame = "white",
         plotRsquared = FALSE)
 
 ```
@@ -106,22 +108,24 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```{r ex2, fig.height = 8, fig.width = 14, fig.cap = "Example 2: Iris dataset principal components analysis"}
 
+    biocLite("datasets")
     library(datasets)
     data(iris)
 
     # order the categories in the 'Species' column
     # CorLevelPlot will conver these to 1, 2, 3, ...
-    iris$Species <- factor(iris$Species, levels=c("setosa", "versicolor", "virginica"))
+    iris$Species <- as.numeric(factor(iris$Species, levels=c("setosa", "versicolor", "virginica")))
 
     i <- CorLevelPlot(data = iris,
         x = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
         y = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
         col = c("white", "cornsilk1", "yellow", "gold", "forestgreen", "darkgreen"),
-        cexCorval = 1.5,
+        cexCorval = 1.2,
         fontCorval = 2,
         posLab = "all",
         rotLabX = 45,
-        main = "Iris correlates",
+        scale = TRUE,
+        main = bquote(Iris~r^2~correlates),
         plotRsquared = TRUE)
 
     pca <- stats::prcomp(iris[,c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")])
@@ -130,7 +134,6 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
     ii <- CorLevelPlot(data = df,
         x = c("PC1", "PC2", "PC3", "PC4"),
         y = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", "Species"),
-        titleX = "Principal\ncomponents",
         cexTitleX = 2.0,
         rotTitleX = 0,
         fontTitleX = 2,
@@ -140,10 +143,14 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         fontTitleY = 2,
         posLab = "topright",
         col = c("blue1", "skyblue", "white", "pink", "red1"),
+        posColKey = "bottom",
+        cexLabColKey = 1.5,
         cexCorval = 1.5,
         fontCorval = 2,
         rotLabX = 45,
+        scale = TRUE,
         main = "Iris PC correlates",
+        colFrame = "white",
         plotRsquared = FALSE)
 
     require(rasterVis)
@@ -167,6 +174,55 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```
 
+## Example 3: World Health Organization (WHO) monica data:
+
+```{r ex3, fig.height = 4, fig.width = 14, fig.cap = "Example 3: World Health Organization (WHO) monica data"}
+
+    biocLite("DAAG")
+    library(DAAG)
+    data(monica)
+
+    # order the categorical variables
+    monica$outcome <- as.numeric(factor(monica$outcome, levels=c("dead", "live")))
+
+    monica$diabetes[monica$diabetes=="nk"] <- NA
+    monica$diabetes <- as.numeric(factor(monica$diabetes, levels=c("n", "y")))
+
+    monica$hichol[monica$hichol=="nk"] <- NA
+    monica$hichol <- as.numeric(factor(monica$hichol, levels=c("n", "y")))
+
+    monica$stroke[monica$stroke=="nk"] <- NA
+    monica$stroke <- as.numeric(factor(monica$stroke, levels=c("n", "y")))
+
+    monica$sex <- as.numeric(factor(monica$sex, levels=c("m", "f")))
+
+    monica$yronset <- as.numeric(factor(monica$yronset, levels=c("85","86","87","88","89","90","91","92","93")))
+
+    monica$highbp[monica$highbp=="nk"] <- NA
+    monica$highbp <- as.numeric(factor(monica$highbp, levels=c("n", "y")))
+
+    monica$angina[monica$angina=="nk"] <- NA
+    monica$angina <- as.numeric(factor(monica$angina, levels=c("n", "y")))
+
+    monica$hosp <- as.numeric(factor(monica$hosp, levels=c("n", "y")))
+
+    CorLevelPlot(data = monica,
+        x = c("outcome", "diabetes", "highbp", "hichol", "angina", "hosp"),
+        y = c("sex", "age", "yronset"),
+        col = c("darkblue", "blue2", "black", "red2", "darkred"),
+        cexCorval = 1.5,
+        colCorval = "white",
+        fontCorval = 2,
+        posLab = "bottomleft",
+        rotLabX = 45,
+        posColKey = "top",
+        cexLabColKey = 1.2,
+        scale = TRUE,
+        main = "World Health Organization",
+        colFrame = "white",
+        plotRsquared = FALSE)
+
+```
 
 ## Acknowledgments
 

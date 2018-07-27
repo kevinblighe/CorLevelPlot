@@ -11,7 +11,12 @@ Imports:
     stats,
     grDevices
 Suggests:
-    knitr
+    knitr,
+    datasets,
+    rasterVis,
+    gridExtra,
+    grid,
+    DAAG
 URL: https://github.com/kevinblighe/CorLevelPlot
 biocViews: GeneExpression, PrincipalComponent, 
 VignetteBuilder:
