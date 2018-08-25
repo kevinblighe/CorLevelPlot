@@ -34,8 +34,7 @@ Install and load CorLevelPlot:
 
 ```{r}
 
-    source("https://bioconductor.org/biocLite.R")
-    biocLite("CorLevelPlot")
+    devtools::install_github("kevinblighe/CorLevelPlot")
     library(CorLevelPlot)
 
 ```
@@ -108,6 +107,7 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```{r ex2, fig.height = 8, fig.width = 14, fig.cap = "Example 2: Iris dataset principal components analysis"}
 
+    source("https://bioconductor.org/biocLite.R") 
     biocLite("datasets")
     library(datasets)
     data(iris)

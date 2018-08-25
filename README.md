@@ -1,7 +1,7 @@
 Visualise correlation results and test significancies of these
 ================
 Kevin Blighe
-2018-08-17
+2018-08-25
 
 -   [Example CorLevelPlot plots](#example-corlevelplot-plots)
 -   [Example 1: WGCNA (weighted gene co-expression network analysis) simulated data:](#example-1-wgcna-weighted-gene-co-expression-network-analysis-simulated-data)
@@ -19,8 +19,7 @@ Example CorLevelPlot plots
 Install and load CorLevelPlot:
 
 ``` r
-source("https://bioconductor.org/biocLite.R")
-biocLite("CorLevelPlot")
+devtools::install_github("kevinblighe/CorLevelPlot")
 library(CorLevelPlot)
 ```
 
@@ -71,6 +70,7 @@ Example 2: Iris dataset principal components analysis:
 ------------------------------------------------------
 
 ``` r
+source("https://bioconductor.org/biocLite.R")
 biocLite("datasets")
 library(datasets)
 data(iris)
@@ -115,13 +115,6 @@ Example 3: World Health Organization (WHO) MONICA data:
 
 ``` r
 biocLite("DAAG")
-```
-
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/8d/js64k0s921zf138dd6j9zst40000gn/T//Rtmpf3relM/downloaded_packages
-
-``` r
 library(DAAG)
 data(monica)
 
@@ -173,32 +166,42 @@ Session info
 sessionInfo()
 ```
 
-    ## R version 3.5.0 (2018-04-23)
-    ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-    ## Running under: macOS High Sierra 10.13.6
+    ## R version 3.5.1 (2018-07-02)
+    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## Running under: Ubuntu 16.04.5 LTS
     ## 
     ## Matrix products: default
-    ## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-    ## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+    ## BLAS: /usr/lib/atlas-base/atlas/libblas.so.3.0
+    ## LAPACK: /usr/lib/atlas-base/atlas/liblapack.so.3.0
     ## 
     ## locale:
-    ## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+    ##  [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+    ##  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+    ##  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+    ##  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+    ## [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
     ## 
     ## attached base packages:
     ## [1] grid      stats     graphics  grDevices utils     datasets  methods  
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] DAAG_1.22            lattice_0.20-35      gridExtra_2.3       
-    ## [4] CorLevelPlot_0.99.0  BiocInstaller_1.30.0 knitr_1.20          
+    ##  [1] DAAG_1.22            gridExtra_2.3        rasterVis_0.45      
+    ##  [4] latticeExtra_0.6-28  RColorBrewer_1.1-2   lattice_0.20-35     
+    ##  [7] raster_2.6-7         sp_1.3-1             BiocInstaller_1.31.3
+    ## [10] CorLevelPlot_0.99.0  knitr_1.20          
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] Rcpp_0.12.18        digest_0.6.15       rprojroot_1.3-2    
-    ##  [4] gtable_0.2.0        backports_1.1.2     formatR_1.5        
-    ##  [7] magrittr_1.5        evaluate_0.10.1     highr_0.7          
-    ## [10] stringi_1.2.3       latticeExtra_0.6-28 rmarkdown_1.10     
-    ## [13] RColorBrewer_1.1-2  tools_3.5.0         stringr_1.3.1      
-    ## [16] yaml_2.1.19         compiler_3.5.0      htmltools_0.3.6
+    ##  [1] Rcpp_0.12.17      magrittr_1.5      devtools_1.13.6  
+    ##  [4] viridisLite_0.3.0 R6_2.2.2          stringr_1.3.1    
+    ##  [7] httr_1.3.1        highr_0.7         tools_3.5.1      
+    ## [10] parallel_3.5.1    gtable_0.2.0      git2r_0.23.0     
+    ## [13] withr_2.1.2       htmltools_0.3.6   yaml_2.1.19      
+    ## [16] rprojroot_1.3-2   digest_0.6.15     formatR_1.5      
+    ## [19] curl_3.2          memoise_1.1.0     evaluate_0.10.1  
+    ## [22] rmarkdown_1.10    stringi_1.2.3     compiler_3.5.1   
+    ## [25] backports_1.1.2   hexbin_1.27.2     zoo_1.8-3
 
 References
 ----------
