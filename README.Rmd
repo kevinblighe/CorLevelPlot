@@ -24,7 +24,7 @@ significancies of these correlations are also provided.
 ```{r, echo=FALSE}
 
     library(knitr)
-    opts_chunk$set(tidy = TRUE, message = FALSE, warning = FALSE)
+    opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE)
 
 ```
 
