@@ -29,7 +29,7 @@ Install and load CorLevelPlot:
 Example 1: WGCNA (weighted gene co-expression network analysis) simulated data:
 -------------------------------------------------------------------------------
 
-The following code taken from [Tutorial for the WGCNA package for R - 1. Simulation of expression and trait data](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/Simulated-01-dataSimulation.pdf)
+The following code taken from [Tutorial for the WGCNA package for R - 1. Simulation of expression and trait data](https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/Simulated-01-dataSimulation.pdf)
 
 ``` r
     # simulate trait-to-eigengene data
