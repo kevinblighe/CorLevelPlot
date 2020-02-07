@@ -107,8 +107,6 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```{r ex2, fig.height = 8, fig.width = 14, fig.cap = "Example 2: Iris dataset principal components analysis"}
 
-    source("https://bioconductor.org/biocLite.R") 
-    biocLite("datasets")
     library(datasets)
     data(iris)
 
@@ -178,7 +176,6 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
 
 ```{r ex3, fig.height = 4, fig.width = 14, fig.cap = "Example 3: World Health Organization (WHO) monica data"}
 
-    biocLite("DAAG")
     library(DAAG)
     data(monica)
 
@@ -223,12 +220,6 @@ The following code taken from [Tutorial for the WGCNA package for R - 1. Simulat
         plotRsquared = FALSE)
 
 ```
-
-## Acknowledgments
-
-The development of *CorLevelPlot* has benefited from contributions and suggestions from:
-
-[Myles Lewis](https://www.qmul.ac.uk/whri/people/academic-staff/items/lewismyles.html)
 
 ## Session info
 

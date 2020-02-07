@@ -1,7 +1,7 @@
 Visualise correlation results and test significancies of these
 ================
 Kevin Blighe
-2019-01-25
+2019-01-29
 
 -   [Example CorLevelPlot plots](#example-corlevelplot-plots)
 -   [Example 1: WGCNA (weighted gene co-expression network analysis) simulated data:](#example-1-wgcna-weighted-gene-co-expression-network-analysis-simulated-data)
@@ -20,6 +20,27 @@ Install and load CorLevelPlot:
 
 ``` r
     devtools::install_github("kevinblighe/CorLevelPlot")
+```
+
+    ##   
+       checking for file ‘/tmp/RtmpeNxfb7/remotes567db544f2/kevinblighe-CorLevelPlot-dab0efc/DESCRIPTION’ ...
+      
+    ✔  checking for file ‘/tmp/RtmpeNxfb7/remotes567db544f2/kevinblighe-CorLevelPlot-dab0efc/DESCRIPTION’ (453ms)
+    ## 
+      
+    ─  preparing ‘CorLevelPlot’: (698ms)
+    ## ✔  checking DESCRIPTION meta-information
+    ## 
+      
+    ─  checking for LF line-endings in source and make files and shell scripts
+    ## ─  checking for empty or unneeded directories
+    ## ─  building ‘CorLevelPlot_0.99.0.tar.gz’
+    ## 
+      
+       
+    ## 
+
+``` r
     library(CorLevelPlot)
 ```
 
@@ -92,8 +113,7 @@ Example 2: Iris dataset principal components analysis:
 ------------------------------------------------------
 
 ``` r
-    source("https://bioconductor.org/biocLite.R") 
-    biocLite("datasets")
+
     library(datasets)
     data(iris)
 
@@ -164,7 +184,7 @@ Example 3: World Health Organization (WHO) MONICA data:
 -------------------------------------------------------
 
 ``` r
-    biocLite("DAAG")
+
     library(DAAG)
     data(monica)
 
@@ -261,7 +281,7 @@ sessionInfo()
     ## [19] hexbin_1.27.2     xfun_0.4          withr_2.1.2      
     ## [22] stringr_1.3.1     desc_1.2.0        fs_1.2.6         
     ## [25] devtools_2.0.1    rprojroot_1.3-2   glue_1.3.0       
-    ## [28] R6_2.3.0          processx_3.2.1    rmarkdown_1.11.3 
+    ## [28] R6_2.3.0          processx_3.2.1    rmarkdown_1.11   
     ## [31] sessioninfo_1.1.1 callr_3.1.1       magrittr_1.5     
     ## [34] codetools_0.2-16  backports_1.1.3   ps_1.3.0         
     ## [37] htmltools_0.3.6   usethis_1.4.0     assertthat_0.2.0 
