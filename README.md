@@ -22,24 +22,6 @@ Install and load CorLevelPlot:
     devtools::install_github("kevinblighe/CorLevelPlot")
 ```
 
-    ##   
-       checking for file ‘/tmp/RtmpeNxfb7/remotes567db544f2/kevinblighe-CorLevelPlot-dab0efc/DESCRIPTION’ ...
-      
-    ✔  checking for file ‘/tmp/RtmpeNxfb7/remotes567db544f2/kevinblighe-CorLevelPlot-dab0efc/DESCRIPTION’ (453ms)
-    ## 
-      
-    ─  preparing ‘CorLevelPlot’: (698ms)
-    ## ✔  checking DESCRIPTION meta-information
-    ## 
-      
-    ─  checking for LF line-endings in source and make files and shell scripts
-    ## ─  checking for empty or unneeded directories
-    ## ─  building ‘CorLevelPlot_0.99.0.tar.gz’
-    ## 
-      
-       
-    ## 
-
 ``` r
     library(CorLevelPlot)
 ```
@@ -231,12 +213,6 @@ Example 3: World Health Organization (WHO) MONICA data:
 
 ![Example 3: World Health Organization (WHO) monica data](README_files/figure-markdown_github/ex3-1.png)
 
-Acknowledgments
----------------
-
-The development of *CorLevelPlot* has benefited from contributions and suggestions from:
-
-[Myles Lewis](https://www.qmul.ac.uk/whri/people/academic-staff/items/lewismyles.html)
 
 Session info
 ------------
